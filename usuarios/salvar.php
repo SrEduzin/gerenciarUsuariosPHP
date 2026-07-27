@@ -1,20 +1,25 @@
 <?php
 
-require_once("functions.php");
+    require_once("functions.php");
 
-if(empty($_POST["nome"]) or empty($_POST["idade"])){
-    
-    header("location: listar.php?resultado=erro");
+    if(isset($_POST["nome"]) && isset($_POST["idade"])){
+        $nome = limparPost($_POST["nome"]);
+        $idade = limparPost($_POST["idade"]);
 
-}else{
+        $erro = validarUsuario($nome,$idade);
+        if($erro){
+            direcionamento($erro);
+        };
+        
+        salvarUsuario($nome, $idade, $conexao);
+        header("location: listar.php?resultado=sucesso");
 
-    $nome = $_POST["nome"];
-    $idade = $_POST["idade"];
+    }else{
+        direcionamento('erroCampo');
+    }
 
-    salvarUsuario($nome,$idade, $conexao);
-    
-    header("location: listar.php?resultado=sucesso");
-    exit();
-};
-
+    function direcionamento($valor){
+        header("location: cadastrar.php?resultado=$valor");
+        exit(); 
+    }
 ?>
