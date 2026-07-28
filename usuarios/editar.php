@@ -1,9 +1,11 @@
 <?php
-    require('functions.php');
-    
+    require_once('../config/conexao.php');
+    require_once('../Repositories/UsuarioRepository.php');
+    $usuarioRepository = new UsuarioRepository($conexao);
+
     $id = $_GET['id'];
 
-    $user = buscarIdDeUsuario($id,$conexao);
+    $user = $usuarioRepository->buscarId($id);
     
 ?>
 

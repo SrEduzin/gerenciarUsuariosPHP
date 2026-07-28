@@ -1,6 +1,10 @@
 <?php
 
-    require_once("functions.php");
+    require_once("../config/conexao.php");
+    require_once("../Repositories/UsuarioRepository.php");
+    require_once("../validation/validation.php");
+    require_once("../helpers/helpers.php");
+    $usuarioRepository = new UsuarioRepository($conexao);
 
     if(isset($_POST["nome"]) && isset($_POST["idade"])){
         $nome = limparPost($_POST["nome"]);
@@ -11,7 +15,7 @@
             direcionamento($erro);
         };
         
-        salvarUsuario($nome, $idade, $conexao);
+        $usuarioRepository->salvar($nome, $idade);
         header("location: listar.php?resultado=sucesso");
 
     }else{

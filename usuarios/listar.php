@@ -1,16 +1,19 @@
 <?php
-    require('functions.php');
+    require('../config/conexao.php');
+    require_once('../Repositories/UsuarioRepository.php');
+
+    $usuarioRepository = new UsuarioRepository($conexao);
 
     if(isset($_GET['nome'])){
 
         $nome = $_GET['nome'];
 
-        $usuarios = buscarNomeDeUsuario($nome,$conexao);
+        $usuarios = $usuarioRepository->buscarNome($nome);
         $pesquisa = $nome;
 
     }else{
         
-        $usuarios = listarUsuarios($conexao);
+        $usuarios = $usuarioRepository->listar();
         $pesquisa = null;
     }
 

@@ -1,6 +1,8 @@
 <?php
 
-require('functions.php');
+require_once('../config/conexao.php');
+require_once('../Repositories/UsuarioRepository.php');
+$usuarioRepository = new UsuarioRepository($conexao);
 
 if(empty($_POST["nome"]) or empty($_POST["idade"])){
     
@@ -11,7 +13,7 @@ if(empty($_POST["nome"]) or empty($_POST["idade"])){
     $nome = $_POST["nome"];
     $idade = $_POST["idade"];
 
-    atualizarUsuario($id, $nome, $idade, $conexao);
+    $usuarioRepository->atualizar($id, $nome, $idade, $conexao);
     
     echo(" Usuário Atualizado com Sucesso!");
     header('location: listar.php');
