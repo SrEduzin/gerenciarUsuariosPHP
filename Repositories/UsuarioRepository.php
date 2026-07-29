@@ -29,7 +29,6 @@
 
             $stmt = $this->conexao->prepare("SELECT id, nome, idade FROM usuarios WHERE id = ?");
             $stmt->execute([$id]);
-
             return $stmt->fetch();
     
         }
@@ -38,25 +37,39 @@
         public function atualizar ($id, $nome, $idade){
 
             $stmt = $this->conexao->prepare("UPDATE usuarios SET nome = ?, idade = ? WHERE id = ?");
+            $resultado = $stmt->execute([$nome, $idade, $id]);
 
-            return $stmt->execute([$nome, $idade, $id]);
+            return $this->validarResultado($resultado);
 
         }
 
         public function salvar($nome, $idade){
 
             $stmt = $this->conexao->prepare("INSERT INTO usuarios(nome,idade) VALUES (?,?)");
+            $resultado = $stmt->execute([$nome,$idade]);
 
-            return $stmt->execute([$nome,$idade]);
+            return $this->validarResultado($resultado);
     
         }
 
         public function apagar($id){
 
             $stmt = $this->conexao->prepare("DELETE FROM usuarios WHERE id = ?");
-            
-            return $stmt->execute([$id]);
+            $resultado = $stmt->execute([$id]);
+
+            return $this->validarResultado($resultado);
     
+        }
+
+        private function validarResultado($resultado){
+
+            if($resultado){
+
+                return 'sucesso';
+
+            }
+
+            return 'erro';
         }
     }
 

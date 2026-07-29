@@ -1,6 +1,6 @@
 <?php
-    require('../config/conexao.php');
-    require_once('../Repositories/UsuarioRepository.php');
+    require_once('../bootstrap.php');
+
 
     $usuarioRepository = new UsuarioRepository($conexao);
 
