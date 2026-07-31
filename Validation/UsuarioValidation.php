@@ -2,7 +2,10 @@
     
     class UsuarioValidation{
 
-        public function validarUsuario($nome, $idade){
+        public function validarUsuario(Usuario $usuario){
+            $nome = $usuario->getNome();
+            $idade = $usuario->getIdade();
+
             if(empty($nome)){
                 return 'erroNomeVazio';
             };

@@ -5,7 +5,7 @@
 
     $id = limparPost($_GET['id']);
 
-    $user = $usuarioRepository->buscarId($id);
+    $usuario = $usuarioRepository->buscarId($id);
     
 ?>
 
@@ -21,11 +21,11 @@
 <body>
     <h1>Editar</h1>
     <form action="atualizar.php" method="post">
-        <input name="id" type="hidden" value="<?= $user['id']?>" >
+        <input name="id" type="hidden" value="<?= $usuario->getId()?>" >
         <label for="nome">Nome</label>
-        <input name="nome" value="<?= $user['nome']?>" id="nome" type="text" placeholder="Digite seu nome" >
+        <input name="nome" value="<?= $usuario->getNome()?>" id="nome" type="text" placeholder="Digite seu nome" >
         <label for="idade">Idade</label>
-        <input name="idade" value="<?= $user['idade']?>" id="idade" type="number" placeholder="Digite sua idade" >
+        <input name="idade" value="<?= $usuario->getIdade()?>" id="idade" type="number" placeholder="Digite sua idade" >
         <button type="submit">editar</button>
     </form>
 

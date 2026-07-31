@@ -10,7 +10,15 @@
     $nome = limparPost($_POST["nome"]);
     $idade = limparPost($_POST["idade"]);
 
-    $resultado = $usuarioService->cadastrar($nome, $idade);
+    $usuario = new Usuario(
+
+        null,
+        $nome,
+        $idade
+
+    );
+
+    $resultado = $usuarioService->cadastrar($usuario);
 
     if($resultado == 'sucesso'){
         

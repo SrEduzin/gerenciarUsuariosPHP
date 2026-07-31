@@ -6,8 +6,14 @@
     $usuarioService = new UsuarioService($usuarioRepository, $usuarioValidation);
         
     $id = limparPost($_GET['id']);
+
+    $usuario = new Usuario(
+        $id,
+        $nome,
+        $idade
+    );
         
-    $resultado = $usuarioService->deletar($id);
+    $resultado = $usuarioService->deletar($usuario);
 
     if($resultado == 'sucesso'){
 

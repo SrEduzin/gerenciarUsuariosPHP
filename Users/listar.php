@@ -72,14 +72,14 @@
             <th>Idade</th>
             <th>Ações</th>
         </tr>
-        <?php foreach ($usuarios as $user): ?>
+        <?php foreach ($usuarios as $usuario): ?>
             <tr>
-                <td><?= $user['id'] ?></td>
-                <td><?= $user['nome'] ?></td>
-                <td><?= $user['idade'] ?></td>
+                <td><?= $usuario->getId() ?></td>
+                <td><?= $usuario->getNome() ?></td>
+                <td><?= $usuario->getIdade() ?></td>
                 <td>
-                    <a class="btn btn-outline-warning" href="editar.php?id=<?= $user['id']; ?>">editar</a> | 
-                    <a class="btn btn-outline-danger" href="deletar.php?id=<?= $user['id']; ?>">apagar</a>
+                    <a class="btn btn-outline-warning" href="editar.php?id=<?= $usuario->getId(); ?>">editar</a> | 
+                    <a class="btn btn-outline-danger" href="deletar.php?id=<?= $usuario->getId(); ?>">apagar</a>
                 </td>
             </tr>
         <?php endforeach; ?>

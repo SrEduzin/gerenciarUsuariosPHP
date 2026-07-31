@@ -7,9 +7,9 @@
             private UsuarioValidation $usuarioValidation
             ){}
 
-        public function cadastrar($nome, $idade){
+        public function cadastrar(Usuario $usuario){
 
-                $resultado = $this->usuarioValidation->validarUsuario($nome, $idade);
+                $resultado = $this->usuarioValidation->validarUsuario($usuario);
 
                 if($resultado != 'validado'){
 
@@ -17,7 +17,7 @@
 
                 };
                 
-                $salvou = $this->usuarioRepository->salvar($nome, $idade);
+                $salvou = $this->usuarioRepository->salvar($usuario);
 
                 if($salvou){
 
@@ -29,9 +29,9 @@
 
         }
 
-        public function atualizar($id, $nome, $idade){
+        public function atualizar(Usuario $usuario){
 
-            $resultado = $this->usuarioValidation->validarUsuario($nome,$idade);
+            $resultado = $this->usuarioValidation->validarUsuario($usuario);
 
             if($resultado != 'validado'){
 
@@ -39,7 +39,7 @@
 
             }
             
-            $atualizou = $this->usuarioRepository->atualizar($id, $nome, $idade);
+            $atualizou = $this->usuarioRepository->atualizar($usuario);
 
             if ($atualizou){
 
@@ -50,9 +50,9 @@
             return 'erro';
         }
 
-        public function deletar($id){
+        public function deletar(Usuario $usuario){
 
-            $resultado = $this->usuarioRepository->apagar($id);
+            $resultado = $this->usuarioRepository->apagar($usuario);
             
             if($resultado){
 

@@ -9,8 +9,13 @@ $UsuarioService = new UsuarioService($usuarioRepository, $usuarioValidation);
     $id = limparpost($_POST["id"]);
     $nome = limparPost($_POST["nome"]);
     $idade = limparPost( $_POST["idade"]);
+    $usuario = new Usuario(
+        $id,
+        $nome,
+        $idade
+    );
 
-    $resultado = $UsuarioService->atualizar($id, $nome, $idade);
+    $resultado = $UsuarioService->atualizar($usuario);
     
     if($resultado == "sucesso"){
 
