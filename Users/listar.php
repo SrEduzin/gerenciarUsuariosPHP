@@ -6,7 +6,7 @@
 
     if(isset($_GET['nome'])){
 
-        $nome = $_GET['nome'];
+        $nome = limparPost($_GET['nome']);
 
         $usuarios = $usuarioRepository->buscarNome($nome);
         $pesquisa = $nome;

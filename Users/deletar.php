@@ -5,7 +5,7 @@
     $usuarioValidation = new UsuarioValidation();
     $usuarioService = new UsuarioService($usuarioRepository, $usuarioValidation);
         
-    $id = $_GET['id'];
+    $id = limparPost($_GET['id']);
         
     $resultado = $usuarioService->deletar($id);
 

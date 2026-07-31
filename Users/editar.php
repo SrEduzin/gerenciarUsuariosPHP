@@ -3,7 +3,7 @@
 
     $usuarioRepository = new UsuarioRepository($conexao);
 
-    $id = $_GET['id'];
+    $id = limparPost($_GET['id']);
 
     $user = $usuarioRepository->buscarId($id);
     
