@@ -9,8 +9,8 @@
 
     $usuario = new Usuario(
         $id,
-        $nome,
-        $idade
+        $nome  = '',
+        $idade = 0
     );
         
     $resultado = $usuarioService->deletar($usuario);

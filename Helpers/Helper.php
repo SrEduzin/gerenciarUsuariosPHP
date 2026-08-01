@@ -1,4 +1,6 @@
 <?php
+
+    //FUNÇÃO QUE LIMPA O DADO 'POST'
     function limparPost($dado){
         $dado = trim($dado);
         $dado = strip_tags($dado);
