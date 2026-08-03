@@ -1,8 +1,20 @@
 <?php
-    require_once 'config/conexao.php';
-    require_once 'Repositories/UsuarioRepository.php';
-    require_once 'Services/UsuarioService.php';
-    require_once 'Entities/Usuario.php';
-    require_once 'Validation/UsuarioValidation.php';
-    require_once 'Helpers/Helper.php';
+    require_once __DIR__ . '/vendor/autoload.php';
+    require_once __DIR__ . '/config/conexao.php';
+    require_once __DIR__ . '/app/Helpers/Helper.php';
+
+    use Eduzin\Atlas\Repositories\UsuarioRepository;
+    use Eduzin\Atlas\Services\UsuarioService;
+    use Eduzin\Atlas\Validations\UsuarioValidation;
+
+
+    $usuarioRepository = new UsuarioRepository($conexao);
+    $usuarioValidation = new UsuarioValidation();
+
+    $usuarioService = new UsuarioService(
+
+        $usuarioRepository,
+        $usuarioValidation
+
+    );
 ?>

@@ -1,5 +1,11 @@
 <?php
 
+    namespace Eduzin\Atlas\Services;
+
+    use Eduzin\Atlas\Models\Usuario;
+    use Eduzin\Atlas\Repositories\UsuarioRepository;
+    use Eduzin\Atlas\Validations\UsuarioValidation;
+
     //GERENCIADOR DE USUARIO
     class UsuarioService{
 
@@ -20,15 +26,9 @@
 
                 };
                 
-                $salvou = $this->usuarioRepository->salvar($usuario);
-
-                if($salvou){
-
-                    return 'sucesso';
-
-                };
-
-                return 'erro';
+                return $this->usuarioRepository->salvar($usuario)
+                ? 'sucesso'
+                : 'erro';
 
         }
 

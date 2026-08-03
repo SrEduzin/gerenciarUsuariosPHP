@@ -1,4 +1,8 @@
 <?php
+
+    namespace Eduzin\Atlas\Validations;
+
+    use Eduzin\Atlas\Models\Usuario;
     
     class UsuarioValidation{
 

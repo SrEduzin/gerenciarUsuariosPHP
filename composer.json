@@ -1,0 +1,15 @@
+{
+    "name": "eduzin/estudochat",
+    "autoload": {
+        "psr-4": {
+            "Eduzin\\Atlas\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MamacoEduzin",
+            "email": "eduardooliveirachagas5@gmail.com"
+        }
+    ],
+    "require": {}
+}

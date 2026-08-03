@@ -1,8 +1,5 @@
 <?php
-    require_once('../bootstrap.php');
-
-
-    $usuarioRepository = new UsuarioRepository($conexao);
+    require_once __DIR__ . '../../../bootstrap.php';
 
     if(isset($_GET['nome'])){
 
@@ -44,7 +41,7 @@
                 break;
         }
     }
-    require('../includes/header.php');
+    require __DIR__ . '../../../includes/header.php';
 ?>
 
     <div>
@@ -84,6 +81,6 @@
             </tr>
         <?php endforeach; ?>
     </table>
-<?php require('../includes/footer.php'); ?>
+<?php require __DIR__ . '../../../includes/footer.php'; ?>
 
     

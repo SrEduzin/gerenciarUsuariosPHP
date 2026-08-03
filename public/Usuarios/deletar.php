@@ -1,9 +1,7 @@
 <?php
-    require_once('../bootstrap.php');
+    require_once __DIR__ . '/../../bootstrap.php';
 
-    $usuarioRepository = new UsuarioRepository($conexao);
-    $usuarioValidation = new UsuarioValidation();
-    $usuarioService = new UsuarioService($usuarioRepository, $usuarioValidation);
+    use Eduzin\Atlas\Models\Usuario;
         
     $id = limparPost($_GET['id']);
 

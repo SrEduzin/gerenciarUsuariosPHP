@@ -1,7 +1,5 @@
 <?php
-    require_once('../bootstrap.php');
-
-    $usuarioRepository = new UsuarioRepository($conexao);
+    require_once __DIR__ . '../../../bootstrap.php';
 
     $id = limparPost($_GET['id']);
 

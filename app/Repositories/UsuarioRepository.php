@@ -1,7 +1,9 @@
 <?php
-
+    namespace Eduzin\Atlas\Repositories;
+    use Eduzin\Atlas\Models\Usuario;
+    use Eduzin\Atlas\Contracts\UsuarioRepositoryInterface;
     //FUNÇÕES PARA INJEÇÃO NO BANCO DE DADOS
-    class UsuarioRepository{
+    class UsuarioRepository implements UsuarioRepositoryInterface{
         
         //PEGA CONEXÃO NO CONSTRUCT
         function __construct(private $conexao){}

@@ -1,5 +1,7 @@
 <?php
 
+    namespace Eduzin\Atlas\Models;
+    
     //OBJETO USUARIO || CONTÉM PROPRIEDADES DO USUARIO
     class Usuario{
 

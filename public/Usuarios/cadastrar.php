@@ -30,7 +30,7 @@
         }
     }
 
-    require('../includes/header.php');
+    require __DIR__ . '../../../includes/header.php';
 ?>
     <h1>Cadastrar</h1>
 
@@ -49,4 +49,4 @@
     </form>
 
     <a href="listar.php">lista de Usuários</a>
-<?php require('../includes/footer.php');?>
+<?php require __DIR__ . '../../../includes/footer.php';?>

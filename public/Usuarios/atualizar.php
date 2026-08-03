@@ -1,10 +1,7 @@
 <?php
 
-require_once('../bootstrap.php');
-
-$usuarioRepository = new UsuarioRepository($conexao);
-$usuarioValidation = new UsuarioValidation();
-$UsuarioService = new UsuarioService($usuarioRepository, $usuarioValidation);
+    require_once __DIR__ . '../../../bootstrap.php';
+    use Eduzin\Atlas\Models\Usuario;
 
     $id = limparpost($_POST["id"]);
     $nome = limparPost($_POST["nome"]);
@@ -15,7 +12,7 @@ $UsuarioService = new UsuarioService($usuarioRepository, $usuarioValidation);
         $idade
     );
 
-    $resultado = $UsuarioService->atualizar($usuario);
+    $resultado = $usuarioService->atualizar($usuario);
     
     if($resultado == "sucesso"){
 
