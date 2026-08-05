@@ -3,7 +3,7 @@
 
     $id = limparPost($_GET['id']);
 
-    $usuario = $usuarioRepository->buscarId($id);
+    $usuario = $usuarioService->buscarId($id);
     
 ?>
 

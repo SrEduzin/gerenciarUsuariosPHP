@@ -2,8 +2,8 @@
 
     namespace Eduzin\Atlas\Services;
 
+    use Eduzin\Atlas\Contracts\UsuarioRepositoryInterface;
     use Eduzin\Atlas\Models\Usuario;
-    use Eduzin\Atlas\Repositories\UsuarioRepository;
     use Eduzin\Atlas\Validations\UsuarioValidation;
 
     //GERENCIADOR DE USUARIO
@@ -11,7 +11,7 @@
 
         //REQUERE OUTROS OBJETOS
         public function __construct(
-            private UsuarioRepository $usuarioRepository, 
+            private UsuarioRepositoryInterface $usuarioRepository, 
             private UsuarioValidation $usuarioValidation
             ){}
 
@@ -43,29 +43,42 @@
 
             }
             
-            $atualizou = $this->usuarioRepository->atualizar($usuario);
+            return $this->usuarioRepository->atualizar($usuario)
+            ? 'sucesso'
+            : 'erro';
 
-            if ($atualizou){
-
-                return "sucesso";
-                
-            }
-
-            return 'erro';
         }
 
         //PEDE PARA O BANCO APAGAR USUARIO
         public function deletar(Usuario $usuario){
 
-            $resultado = $this->usuarioRepository->apagar($usuario);
+            return $this->usuarioRepository->apagar($usuario)
+            ? 'sucesso'
+            : 'erro';
             
-            if($resultado){
+        }
 
-                return 'sucesso';
+        public function editar(Usuario $usuario){
 
-            }
+            return $this->usuarioRepository->atualizar($usuario);
+        }
 
-            return 'erro';
+        public function listar(){
+
+            return $this->usuarioRepository->listar();
+
+        }
+
+        public function buscarNome($nome){
+
+            return $this->usuarioRepository->buscarNome($nome);
+
+        }
+
+        public function buscarId($id){
+
+            return $this->usuarioRepository->buscarId($id);
+
         }
     }
 

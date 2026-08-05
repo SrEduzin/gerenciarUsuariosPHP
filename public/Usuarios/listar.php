@@ -5,12 +5,12 @@
 
         $nome = limparPost($_GET['nome']);
 
-        $usuarios = $usuarioRepository->buscarNome($nome);
+        $usuarios = $usuarioService->buscarNome($nome);
         $pesquisa = $nome;
 
     }else{
         
-        $usuarios = $usuarioRepository->listar();
+        $usuarios = $usuarioService->listar();
         $pesquisa = null;
     }
 

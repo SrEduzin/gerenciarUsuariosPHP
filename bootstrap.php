@@ -3,18 +3,11 @@
     require_once __DIR__ . '/config/conexao.php';
     require_once __DIR__ . '/app/Helpers/Helper.php';
 
-    use Eduzin\Atlas\Repositories\UsuarioRepository;
-    use Eduzin\Atlas\Services\UsuarioService;
-    use Eduzin\Atlas\Validations\UsuarioValidation;
+    use Eduzin\Atlas\Core\Container;
+
+    $container = new Container($conexao);
+
+    $usuarioService = $container->getUsuarioService();
 
 
-    $usuarioRepository = new UsuarioRepository($conexao);
-    $usuarioValidation = new UsuarioValidation();
-
-    $usuarioService = new UsuarioService(
-
-        $usuarioRepository,
-        $usuarioValidation
-
-    );
 ?>
